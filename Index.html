@@ -1,237 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Book</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background: #ff5722;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-        .filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        .filters button {
-            padding: 10px 15px;
-            margin: 5px;
-            border: none;
-            background: #ff5722;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-        .filters button:hover {
-            background: #e64a19;
-        }
-        .recipe-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .recipe-card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: 0.3s;
-            display: none;
-        }
-        .recipe-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-        .image-container {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .image-container img {
-            width: auto;
-            height: 100%;
-            object-fit: cover;
-        }
-        .recipe-card h2 {
-            color: #ff5722;
-            margin: 10px 0;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 15px;
-            background: #ff5722;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #e64a19;
-        }
-        @media (max-width: 768px) {
-            .recipe-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-    <script>
-        function filterRecipes(category) {
-            let recipes = document.querySelectorAll('.recipe-card');
-            recipes.forEach(recipe => {
-                if (category === 'all' || recipe.classList.contains(category)) {
-                    recipe.style.display = 'block';
-                } else {
-                    recipe.style.display = 'none';
-                }
-            });
-        }
-        window.onload = function() {
-            filterRecipes('all');
-        };
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Book</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/scripts.js" defer></script>
 </head>
 <body>
 
-    <header>My Recipe Book</header>
+  <header>My Recipe Book</header>
 
-    <div class="container">
-        <div class="filters">
-            <button onclick="filterRecipes('all')">All</button>
-            <button onclick="filterRecipes('breakfast')">Breakfast</button>
-            <button onclick="filterRecipes('meals')">Meals</button>
-            <button onclick="filterRecipes('snacks')">Snacks</button>
-            <button onclick="filterRecipes('drinks')">Drinks</button>
-            <button onclick="filterRecipes('dessert')">Dessert</button>
-        </div>
-
-        <div class="recipe-grid">
-            <div class="recipe-card breakfast">
-                <div class="image-container">
-                    <img src="poha.jpg" alt="Poha">
-                </div>
-                <h2>Poha</h2>
-                <p>A light and flavorful Indian breakfast dish.</p>
-                <a href="poha.html" class="btn">View Recipe</a>
-            </div>
-
-            <div class="recipe-card breakfast">
-                <div class="image-container">
-                    <img src="uttapam.jpg" alt="Uttapam">
-                </div>
-                <h2>Uttapam</h2>
-                <p>A soft and savory South Indian pancake.</p>
-                <a href="uttapam.html" class="btn">View Recipe</a>
-            </div>
-
-            <div class="recipe-card meals">
-                <div class="image-container">
-                    <img src="chole.jpg" alt="Chole">
-                </div>
-                <h2>Chole</h2>
-                <p>A delicious and spicy chickpea curry.</p>
-                <a href="chole_curry.html" class="btn">View Recipe</a>
-            </div>
-
-            <div class="recipe-card breakfast">
-                <div class="image-container">
-                    <img src="creamy_oats_porridge.jpg" alt="creamy_oats_porridge">
-                </div>
-                <h2>Creamy Oats Porridge</h2>
-                <p>A warm, creamy bowl of comfort packed with wholesome goodness!.</p>
-                <a href="creamy_oats_porridge.html" class="btn">View Recipe</a>
-            </div>
-
-
-            <div class="recipe-card meals">
-                <div class="image-container">
-                    <img src="pulao.jpg" alt="Rice Pulao">
-                </div>
-                <h2>Rice Pulao</h2>
-                <p>Aromatic and flavorful rice dish.</p>
-                <a href="rice_pulao.html" class="btn">View Recipe</a>
-            </div>
-
-            <div class="recipe-card meals">
-                <div class="image-container">
-                    <img src="bhindi.jpg" alt="Bhindi Stir Fry">
-                </div>
-                <h2>Bhindi Stir Fry</h2>
-                <p>A crispy, flavorful bhindi stir-fry packed with spices and nutrition!</p>
-                <a href="bhindi_stir_fry.html" class="btn">View Recipe</a>
-            </div>
-
-            <div class="recipe-card meals">
-                <div class="image-container">
-                    <img src="gravy_aloo.jpg" alt="Gravy Aloo">
-                </div>
-                <h2>Gravy Aloo</h2>
-                <p>A crispy, flavorful bhindi stir-fry packed with spices and nutrition!</p>
-                <a href="gravy_aloo.html" class="btn">View Recipe</a>
-            </div>
-            <div class="recipe-card breakfast">
-                <div class="image-container">
-                    <img src="besan_chilla.jpg" alt="Besan Chilla">
-                </div>
-                <h2>Besan Chilla</h2>
-                <p>A nutritious gram flour pancake.</p>
-                <a href="besan_chilla.html" class="btn">View Recipe</a>
-            </div>
-
-            <div class="recipe-card snacks">
-                <div class="image-container">
-                    <img src="samosa.jpg" alt="Samosa">
-                </div>
-                <h2>Samosa</h2>
-                <p>A crispy and spicy Indian snack.</p>
-                <a href="samosa.html" class="btn">View Recipe</a>
-            </div>
-
-            <div class="recipe-card drinks">
-                <div class="image-container">
-                    <img src="masala_tea.jpg" alt="Masala Tea">
-                </div>
-                <h2>Masala Tea</h2>
-                <p>Aromatic Indian spiced tea.</p>
-                <a href="masala_tea.html" class="btn">View Recipe</a>
-            </div>
-
-            <div class="recipe-card dessert">
-                <div class="image-container">
-                    <img src="gulab_jamun.jpg" alt="Gulab Jamun">
-                </div>
-                <h2>Gulab Jamun</h2>
-                <p>Sweet and soft milk dumplings soaked in syrup.</p>
-                <a href="gulab_jamun.html" class="btn">View Recipe</a>
-            </div>
-        </div>
+  <div class="container">
+    <div class="filters">
+      <button onclick="filterRecipes('all')">All</button>
+      <button onclick="filterRecipes('breakfast')">Breakfast</button>
+      <button onclick="filterRecipes('meals')">Meals</button>
+      <button onclick="filterRecipes('snacks')">Snacks</button>
+      <button onclick="filterRecipes('drinks')">Drinks</button>
+      <button onclick="filterRecipes('dessert')">Dessert</button>
     </div>
+
+    <div class="recipe-grid">
+      <div class="recipe-card breakfast">
+        <div class="image-container">
+          <img src="assets/images/poha.jpg" alt="Poha">
+        </div>
+        <h2>Poha</h2>
+        <p>A light and flavorful Indian breakfast dish.</p>
+        <a href="poha.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card breakfast">
+        <div class="image-container">
+          <img src="assets/images/uttapam.jpg" alt="Uttapam">
+        </div>
+        <h2>Uttapam</h2>
+        <p>A soft and savory South Indian pancake.</p>
+        <a href="uttapam.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card meals">
+        <div class="image-container">
+          <img src="assets/images/chole.jpg" alt="Chole">
+        </div>
+        <h2>Chole</h2>
+        <p>A delicious and spicy chickpea curry.</p>
+        <a href="chole_curry.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card breakfast">
+        <div class="image-container">
+          <img src="assets/images/creamy_oats_porridge.jpg" alt="Creamy Oats Porridge">
+        </div>
+        <h2>Creamy Oats Porridge</h2>
+        <p>A warm, creamy bowl of comfort packed with wholesome goodness!</p>
+        <a href="creamy_oats_porridge.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card meals">
+        <div class="image-container">
+          <img src="assets/images/pulao.jpg" alt="Rice Pulao">
+        </div>
+        <h2>Rice Pulao</h2>
+        <p>Aromatic and flavorful rice dish.</p>
+        <a href="rice_pulao.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card meals">
+        <div class="image-container">
+          <img src="assets/images/bhindi.jpg" alt="Bhindi Stir Fry">
+        </div>
+        <h2>Bhindi Stir Fry</h2>
+        <p>A crispy, flavorful bhindi stir-fry packed with spices and nutrition!</p>
+        <a href="bhindi_stir_fry.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card meals">
+        <div class="image-container">
+          <img src="assets/images/gravy_aloo.jpg" alt="Gravy Aloo">
+        </div>
+        <h2>Gravy Aloo</h2>
+        <p>A crispy, flavorful bhindi stir-fry packed with spices and nutrition!</p>
+        <a href="gravy_aloo.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card breakfast">
+        <div class="image-container">
+          <img src="assets/images/besan_chilla.jpg" alt="Besan Chilla">
+        </div>
+        <h2>Besan Chilla</h2>
+        <p>A nutritious gram flour pancake.</p>
+        <a href="besan_chilla.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card snacks">
+        <div class="image-container">
+          <img src="assets/images/samosa.jpg" alt="Samosa">
+        </div>
+        <h2>Samosa</h2>
+        <p>A crispy and spicy Indian snack.</p>
+        <a href="samosa.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card drinks">
+        <div class="image-container">
+          <img src="assets/images/masala_tea.jpg" alt="Masala Tea">
+        </div>
+        <h2>Masala Tea</h2>
+        <p>Aromatic Indian spiced tea.</p>
+        <a href="masala_tea.html" class="btn">View Recipe</a>
+      </div>
+
+      <div class="recipe-card dessert">
+        <div class="image-container">
+          <img src="assets/images/gulab_jamun.jpg" alt="Gulab Jamun">
+        </div>
+        <h2>Gulab Jamun</h2>
+        <p>Sweet and soft milk dumplings soaked in syrup.</p>
+        <a href="gulab_jamun.html" class="btn">View Recipe</a>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
